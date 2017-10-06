@@ -83,8 +83,9 @@
     <div id="modal-full" class="uk-modal-full uk-modal uk-modal-search" uk-modal="">
         <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
             <button class="uk-modal-close-full" type="button" uk-close></button>
-            <form class="uk-search uk-search-large">
-                <input class="uk-search-input uk-text-center" type="search" placeholder="Recherche sur le site ..." autofocus>
+            <form class="uk-search uk-search-large" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+                <input type="hidden" value="post" name="post_type" id="post_type" />
+                <input class="uk-search-input uk-text-center" type="search" name="s" value="<?php the_search_query(); ?>" placeholder="Recherche sur le site ..." autofocus>
             </form>
         </div>
     </div>

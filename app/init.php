@@ -11,5 +11,5 @@ include ('theme/ajax.post.php');
 
 
 include ('admin/home.php');
-//include ('admin/post.php');
+include ('admin/post.php');
 include ('admin/category.php');

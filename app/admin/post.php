@@ -1,16 +1,14 @@
 <?php
 
-$boxPages = tr_meta_box('Article de la cover');
-$boxPages->addScreen('post'); // updated
-$boxPages->setCallback(function(){
+$boxUne = tr_meta_box('Gallerie');
+$boxUne->addScreen('post'); // updated
+$boxUne->setCallback(function(){
 	$form = tr_form();
 
-	$options = [
-		'Aucune position' => 'aucun',
-		'Position article cover' => 'cover',
-		'Position article à la une' => 'une',
-		'Position dossier' => 'dossier'
-	];
+	$repeater = $form->repeater('Image de la gallerie')->setFields([
+		$form->image('Image')->setSetting('button', 'Inserez une image')
+	]);
 
-	echo $form->radio('Affichage sur l\'accueil')->setOptions($options)->setSetting('default', 'aucun');
+	echo $repeater;
+
 });

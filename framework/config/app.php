@@ -10,7 +10,7 @@ return [
     */
     'plugins' => [
         'seo',
-//        'dev',
+        'dev',
         'theme-options',
 //        'builder',
     ],
@@ -23,7 +23,7 @@ return [
     | Turn on Debugging for TypeRocket. Set to false to disable.
     |
     */
-    'debug' => false,
+    'debug' => true,
 
     /*
     |--------------------------------------------------------------------------

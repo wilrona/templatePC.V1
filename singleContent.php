@@ -88,6 +88,17 @@
 <div class="uk-margin uk-contenu">
 	<?=  get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'uk-margin-auto uk-display-block uk-margin'));?>
 	<?php the_content() ?>
+
+    <?php
+        $images = tr_posts_field('image_de_la_gallerie');
+    ?>
+    <div class="owl-carousel owl-theme" id="owl-carousel-post">
+        <?php foreach ($images as $image): ?>
+            <div class="item uk-transition-toggle">
+                <?= wp_get_attachment_image($image['image'], '790') ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </div>
 
 	<div class="uk-margin uk-grid-small" uk-grid>
