@@ -1,5 +1,5 @@
 
-<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+<?php if ( have_posts() ) while ( have_posts() ) : the_post();  SetPostViews(get_the_ID()); ?>
 
 <div class="uk-banner-title uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-grid-collapse uk-opensan-bold" uk-grid>
 	<div class="uk-width-auto uk-padding-xsmall boundary-align-1 uk-box-shadow-medium">
@@ -76,10 +76,10 @@
 		<a href="#modal-friend" uk-toggle class="uk-button"> <span  class="fa fa-envelope uk-icon"></span> Envoyer l'article à un ami </a>
 	</div>
     <div data-network="facebook" class="st-custom-button uk-bg-default" data-image="<?= get_the_post_thumbnail_url() ?>">
-        <a href="#"  class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: facebook" class=""></span> <span class="count"></span> Partage(s) </a>
+        <a href="#"  class="uk-button" onclick="event.preventDefault();"><span uk-icon="icon: facebook" class=""></span> Partage(s) </a>
     </div>
 	<div class="uk-bg-default st-custom-button" data-network="twitter" data-image="<?= get_the_post_thumbnail_url() ?>">
-		<a href="#" class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: twitter" class=""></span> <span class="count"></span> Twitte(s)  </a>
+		<a href="#" class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: twitter" class=""></span> Twitte(s)  </a>
 	</div>
 </div>
 
@@ -91,6 +91,7 @@
 
     <?php
         $images = tr_posts_field('image_de_la_gallerie');
+        if($images):
     ?>
     <div class="owl-carousel owl-theme" id="owl-carousel-post">
         <?php foreach ($images as $image): ?>
@@ -99,6 +100,7 @@
             </div>
         <?php endforeach; ?>
     </div>
+    <?php endif; ?>
 </div>
 
 	<div class="uk-margin uk-grid-small" uk-grid>
@@ -137,10 +139,10 @@
 			<a href="#modal-friend" uk-toggle class="uk-button" > <span  class="fa fa-envelope uk-icon"></span> Envoyer l'article à un ami </a>
 		</div>
         <div data-network="facebook" class="st-custom-button uk-bg-default" data-image="<?= get_the_post_thumbnail_url() ?>">
-            <a href="#"  class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: facebook" class=""></span> <span class="count"></span> Partage(s) </a>
+            <a href="#"  class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: facebook" class=""></span> Partage(s) </a>
         </div>
         <div class="uk-bg-default st-custom-button" data-network="twitter" data-image="<?= get_the_post_thumbnail_url() ?>">
-            <a href="#" class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: twitter" class=""></span> <span class="count"></span> Twitte(s)  </a>
+            <a href="#" class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: twitter" class=""></span> Twitte(s)  </a>
         </div>
 	</div>
 

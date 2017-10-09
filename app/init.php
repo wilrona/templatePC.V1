@@ -8,6 +8,7 @@ include ('admin/asset.php');
 include ('theme/filter.menu.php');
 include ('theme/filter.title.php');
 include ('theme/ajax.post.php');
+include ('theme/post.popular.php');
 
 
 include ('admin/home.php');

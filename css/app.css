@@ -267,6 +267,10 @@ h6,
     border-radius: 15px;
 }
 
+.uk-article-act.uk-article-button .uk-button-default:hover{
+    background: rgba(217,44,107,.6);
+}
+
 .uk-article-act.uk-button-shared .uk-button-default{
     border-radius: 0px;
     color: #ffffff;
@@ -277,6 +281,11 @@ h6,
     color: rgba(217,44,107,1);
     font-size: 16px;
     margin-right: 10px;
+}
+
+
+.uk-article-act.uk-button-shared .uk-bg-default .uk-button:hover{
+    background-color: rgba(217,44,107, .4);
 }
 
 /*
@@ -389,6 +398,11 @@ h6,
     margin-right: 10px;
 }
 
+.uk-article-eco.uk-button-shared .uk-bg-default .uk-button:hover{
+    background-color: rgba(255, 160, 0, .4);
+}
+
+
 /*
     Affichage du titre des sous catégorie dans la page catégorie
  */
@@ -484,6 +498,10 @@ h6,
     color: rgba(41,11,60,1);
     font-size: 16px;
     margin-right: 10px;
+}
+
+.uk-article-esc.uk-button-shared .uk-bg-default .uk-button:hover{
+    background-color: rgba(41,11,60, .4);
 }
 
 /*
@@ -595,6 +613,10 @@ h6,
     margin-right: 10px;
 }
 
+.uk-article-soc.uk-button-shared .uk-bg-default .uk-button:hover{
+    background-color: rgba(39,114,133, .4);
+}
+
 /*
     Traitement des articles de la catégorie sous fond gris
  */
@@ -704,6 +726,11 @@ h6,
     margin-right: 10px;
 }
 
+.uk-article-eve.uk-button-shared .uk-bg-default .uk-button:hover{
+    background-color: rgba(55,155,176, .4);
+}
+
+
 /*
     Traitement des articles de la catégorie sous fond gris
  */
@@ -808,6 +835,10 @@ h6,
     color: rgba(239, 0, 12,1);
     font-size: 16px;
     margin-right: 10px;
+}
+
+.uk-article-inn.uk-button-shared .uk-bg-default .uk-button:hover{
+    background-color: rgba(239, 0, 12, .4);
 }
 
 /*
@@ -915,6 +946,10 @@ h6,
     margin-right: 10px;
 }
 
+.uk-article-gas.uk-button-shared .uk-bg-default .uk-button:hover{
+    background-color: rgba(96,189,87, .4);
+}
+
 /*
     Traitement des articles de la catégorie sous fond gris
  */
@@ -1018,6 +1053,11 @@ h6,
     color: rgba(46,74,157,1);
     font-size: 16px;
     margin-right: 10px;
+}
+
+
+.uk-article-cul.uk-button-shared .uk-bg-default .uk-button:hover{
+    background-color: rgba(46,74,157, .4);
 }
 
 /*
@@ -1124,8 +1164,12 @@ h6,
 }
 
 
-.uk-article .uk-link-reset, .uk-article .uk-link-reset:hover{
+.uk-article .uk-link-reset{
     color: #000000 !important;
+}
+
+.uk-article .uk-link-reset:hover{
+    color: #1e87f0 !important;
 }
 
 .uk-article h2{
@@ -1219,7 +1263,7 @@ h6,
 
 .uk-shared .uk-table-badge{
     padding: 9px;
-    width: 50px;
+    max-width: 70px;
 }
 
 .uk-shared tbody tr{

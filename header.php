@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="uk-navbar-center">
-            <a href="<?php home_url() ?>" class="uk-logo ">
+            <a href="<?= home_url() ?>" class="uk-logo ">
                 <img src="<?= get_stylesheet_directory_uri() ?>/image/logo.png" alt="" style="height: 70px;">
             </a>
         </div>
