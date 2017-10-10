@@ -217,11 +217,8 @@
 </div>
 
 <?php endif; ?>
-<?php if (function_exists('the_ad_placement') && the_ad_placement('placement-manuel') ): ?>
+<?php if (function_exists('the_ad_placement')): ?>
 <div class="uk-position-relative">
-	<div class="uk-width-3-4 uk-position-top-right uk-text-right uk-background-pc-3 uk-padding uk-padding-remove-vertical">
-		Publicité
-	</div>
 
 	<?php the_ad_placement('placement-manuel') ?>
 

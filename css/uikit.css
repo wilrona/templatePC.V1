@@ -2283,7 +2283,7 @@ select.uk-form-width-xsmall {
 /* Size modifier
  ========================================================================== */
 .uk-container-small {
-  max-width: 900px;
+  max-width: 960px;
 }
 .uk-container-large {
   max-width: 1600px;

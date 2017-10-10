@@ -32,3 +32,19 @@ function wpd_subcategory_template( $template ) {
 	return $template;
 }
 add_filter( 'category_template', 'wpd_subcategory_template' );
+
+
+add_action( 'pre_get_posts', function( $query ) {
+
+	// Check that it is the query we want to change: front-end search query
+	if( $query->is_main_query() && ! is_admin() && $query->is_search() ) {
+
+		// Change the query parameters
+		$query->set( 'posts_per_page', 3 );
+		$query->set( 'post_type', 'post' );
+		$query->set( 'paged', 1 );
+		$query->set( 'post_status', 'publish' );
+
+	}
+
+} );

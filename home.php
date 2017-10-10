@@ -6,8 +6,8 @@
 	<?php get_template_part( 'cover' ); ?>
 
 
-	<div class="uk-section uk-padding-remove-bottom">
-		<div class="uk-container">
+	<div class="uk-section uk-padding-remove">
+		<div class="uk-container uk-container-small">
 			<div class="uk-margin-large" uk-grid id="block">
 				<div class="uk-width-2-3">
 					<?php get_template_part( 'articleHome' ); ?>

@@ -4,12 +4,12 @@
 
 <?php $post_cover = get_post(tr_posts_field('actuellement_en_cover')); ?>
 
-<div class="uk-container uk-submenu">
+<div class="uk-container uk-container-small uk-submenu uk-margin-medium-bottom">
 	<div class="uk-cover-container uk-height-custom uk-cover-slide uk-animation-fade uk-animation-toggle uk-transition-toggle">
 		<?=  get_the_post_thumbnail( $post_cover->ID, 'full', array('class' => 'uk-transition-scale-up uk-transition-opaque'));?>
 		<div class="uk-overlay uk-overlay-default uk-position-left uk-width-1-3 uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category($post_cover->ID)[0]->parent) ?> uk-flex uk-flex-middle ">
 			<article class="uk-article uk-margin-medium-right">
-				<h2 class="dotdot uk-h2 uk-margin-small uk-animation-slide-bottom-small" style="height: 4em">
+				<h2 class="dotdot uk-h3 uk-margin-small uk-animation-slide-bottom-small" style="height: 4em">
 					<a href="<?= get_the_permalink($post_cover->ID) ?>" class="uk-link-reset uk-display-block uk-text-break"><?= $post_cover->post_title ?></a>
 				</h2>
 

@@ -90,11 +90,9 @@
 
 		<?php if($count == 2): ?>
 
-			<?php if (function_exists('the_ad_placement') && the_ad_placement('placement-manuel') ): ?>
+			<?php if (function_exists('the_ad_placement')): ?>
 				<div class="uk-position-relative">
-					<div class="uk-width-3-4 uk-position-top-right uk-text-right uk-background-pc-3 uk-padding uk-padding-remove-vertical">
-						Publicité
-					</div>
+
 
 					<?php the_ad_placement('placement-manuel') ?>
 
@@ -123,7 +121,7 @@
 								<a href="<?= get_category_link(get_the_category(get_the_ID())[0]->term_id); ?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category(get_the_ID())[0]->name; ?></a>
 							</div>
 							<h2 class="dotdot uk-margin-small uk-h4" style="max-height: 3em">
-								<a href="" class="uk-link-reset uk-display-block uk-text-break"><?= get_the_title(); ?></a>
+								<a href="<?= get_the_permalink(get_the_ID()) ?>" class="uk-link-reset uk-display-block uk-text-break"><?= get_the_title(); ?></a>
 							</h2>
 							<div class="uk-height-content dotdot uk-margin-small uk-text-justify">
 								<p>

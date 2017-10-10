@@ -76,10 +76,10 @@
 		<a href="#modal-friend" uk-toggle class="uk-button"> <span  class="fa fa-envelope uk-icon"></span> Envoyer l'article à un ami </a>
 	</div>
     <div data-network="facebook" class="st-custom-button uk-bg-default" data-image="<?= get_the_post_thumbnail_url() ?>">
-        <a href="#"  class="uk-button" onclick="event.preventDefault();"><span uk-icon="icon: facebook" class=""></span> Partage(s) </a>
+        <a href="#"  class="uk-button" onclick="event.preventDefault();"><span class="uk-icon fa fa-facebook"></span> Partage(s) </a>
     </div>
 	<div class="uk-bg-default st-custom-button" data-network="twitter" data-image="<?= get_the_post_thumbnail_url() ?>">
-		<a href="#" class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: twitter" class=""></span> Twitte(s)  </a>
+		<a href="#" class="uk-button" onclick="event.preventDefault()"><span class="fa fa-twitter uk-icon"></span> Twitte(s)  </a>
 	</div>
 </div>
 
@@ -139,20 +139,17 @@
 			<a href="#modal-friend" uk-toggle class="uk-button" > <span  class="fa fa-envelope uk-icon"></span> Envoyer l'article à un ami </a>
 		</div>
         <div data-network="facebook" class="st-custom-button uk-bg-default" data-image="<?= get_the_post_thumbnail_url() ?>">
-            <a href="#"  class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: facebook" class=""></span> Partage(s) </a>
+            <a href="#"  class="uk-button" onclick="event.preventDefault()"><span class="uk-icon fa fa-facebook"></span> Partage(s) </a>
         </div>
         <div class="uk-bg-default st-custom-button" data-network="twitter" data-image="<?= get_the_post_thumbnail_url() ?>">
-            <a href="#" class="uk-button" onclick="event.preventDefault()"><span uk-icon="icon: twitter" class=""></span> Twitte(s)  </a>
+            <a href="#" class="uk-button" onclick="event.preventDefault()"><span class="fa fa-twitter uk-icon"></span> Twitte(s)  </a>
         </div>
 	</div>
 
 
 	<hr>
-	<?php if (function_exists('the_ad_placement') && the_ad_placement('placement-manuel') ): ?>
+	<?php if (function_exists('the_ad_placement')): ?>
 		<div class="uk-position-relative">
-			<div class="uk-width-3-4 uk-position-top-right uk-text-right uk-background-pc-3 uk-padding uk-padding-remove-vertical">
-				Publicité
-			</div>
 
 			<?php the_ad_placement('placement-manuel') ?>
 
@@ -304,7 +301,7 @@
 
                 <div uk-grid class="uk-margin-remove uk-padding-small uk-grid-small uk-comments the_post_comment">
                     <div class="uk-width-1-6">
-                        <?= get_avatar($e->comment_author_email, 96, '', '', array('class' => 'uk-image-resize uk-border-circle')) ?>
+                        <?= get_avatar($e->comment_author_email, 40, '', '', array('class' => 'uk-image-resize uk-border-circle', 'style' => 'width: 40px; height: 40px')) ?>
                     </div>
                     <div class="uk-width-5-6">
                         <article class="uk-comment uk-margin-small-bottom">

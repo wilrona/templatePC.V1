@@ -5,13 +5,13 @@
         <?php if ((int) get_option('page_on_front') == get_the_ID()): ?>
 	        <?php get_template_part( 'recentPost' ); ?>
         <?php endif ?>
-		<?php if ( function_exists('the_ad_placement') && the_ad_placement('home-apres-recent-article') ): ?>
+		<?php if ( function_exists('the_ad_placement')): ?>
             <div class="uk-position-relative">
-                <div class="uk-width-3-4 uk-position-top-right uk-text-right uk-background-pc-3 uk-padding uk-padding-remove-vertical">
-                    Publicité
-                </div>
 
-				<?= the_ad_placement('home-apres-recent-article') ?>
+				<?php
+
+                    the_ad_placement('home-apres-recent-article');
+                ?>
 
             </div>
 		<?php endif ?>

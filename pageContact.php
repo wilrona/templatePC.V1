@@ -1,3 +1,9 @@
+<?php
+
+/* Template Name: Page Contact */
+
+?>
+
 <?php get_header(); ?>
 
 	<div class="uk-section uk-padding-remove">
@@ -8,7 +14,8 @@
                 <div class="uk-background-secondary uk-padding-small uk-margin">
                     <h1 class="uk-margin-remove uk-h4" style="color: #ffffff; font-family: 'Open Sans Bold', serif; "><?php the_title() ?></h1>
                 </div>
-				<?= wpautop( get_the_content(), false ); ?>
+				<?php the_content() ?>
+                <br>
 
 			<?php endwhile; ?>
 

@@ -3,7 +3,7 @@
 	$popularpost = new WP_Query( array(
 		'posts_per_page' => 5,
 		'meta_key' => 'post_views_count',
-		'orderby' => 'meta_value',
+		'orderby' => 'meta_value_num',
 		'order' => 'DESC',
 		'post_type' => 'post',
 	) );
@@ -57,11 +57,8 @@
 		<a href="#modal-center" uk-toggle class="uk-button uk-button-default uk-button-large uk-button-menu">Abonnez-vous</a>
 	</div>
 	<div uk-sticky="bottom: #block">
-		<?php  if ( function_exists('the_ad_placement') && the_ad_placement('sidebar-left') ): ?>
+		<?php  if ( function_exists('the_ad_placement')): ?>
 		<div class="uk-position-relative">
-			<div class="uk-width-1-1 uk-position-top uk-text-right uk-background-pc-3 uk-padding uk-padding-remove-vertical">
-				Publicité
-			</div>
 			<?=  the_ad_placement('sidebar-left') ?>
 			<div class="uk-width-1-1 uk-position-bottom uk-text-right uk-background-pc-3 uk-padding uk-padding-remove-vertical uk-height-custom-pub">
 
