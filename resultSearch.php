@@ -47,7 +47,7 @@ global $wp_query;
 									<?= get_the_date('d/m/Y', get_the_ID()) ?> <br>
 									<a href="<?= get_category_link(get_the_category(get_the_ID())[0]->term_id); ?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category(get_the_ID())[0]->name; ?></a>
 								</div>
-								<h2 class="dotdot uk-margin-small uk-h4" style="max-height: 3em">
+								<h2 class="dotdot uk-margin-small uk-h5" style="max-height: 3em">
 									<a href="<?= get_the_permalink(get_the_ID()) ?>" class="uk-link-reset uk-display-block uk-text-break"><?= get_the_title(); ?></a>
 								</h2>
 								<div class="uk-height-content dotdot uk-margin-small uk-text-justify">

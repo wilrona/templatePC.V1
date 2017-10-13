@@ -6,7 +6,7 @@
 		<div class="uk-width-2-3">
 			<?php while ( have_posts() ) : the_post(); ?>
                 <div class="uk-background-secondary uk-padding-small uk-margin">
-                    <h1 class="uk-margin-remove uk-h4" style="color: #ffffff; font-family: 'Open Sans Bold', serif; "><?php the_title() ?></h1>
+                    <h1 class="uk-margin-remove uk-h5" style="color: #ffffff; font-family: 'Open Sans Bold', serif; "><?php the_title() ?></h1>
                 </div>
 				<?= wpautop( get_the_content(), false ); ?>
 

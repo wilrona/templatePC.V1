@@ -50,8 +50,13 @@
     src: url(../fonts/Montserrat-Light.ttf);
 }
 
+html{
+    height: 100%;
+    width: 100%;
+}
+
 body{
-    /* width: 100%; */
+     width: 100%;
     min-height: 100%;
     font-family: "Minion Pro", serif;
     font-size: 16px;
@@ -1126,6 +1131,8 @@ h6,
     font-weight: bold;
 }
 
+
+
 .uk-button-menu:hover{
     background-color: #000000;
     color: #ffffff;
@@ -1229,7 +1236,6 @@ h6,
 
 .uk-text-title-reverse{
     color: #ffffff !important;
-    font-size: 12px !important;
 }
 
 .uk-height-custom{
@@ -1246,7 +1252,7 @@ h6,
 }
 
 .uk-shared{
-    background-color: #ededed;
+    background-color: #e5e6e6;
 }
 
 .uk-shared thead{
@@ -1459,3 +1465,195 @@ h6,
 }
 
 
+/*
+Responsive element
+ */
+
+.uk-menu .uk-navbar-toggle{
+    padding: 0 0px 0 15px;
+}
+
+.uk-button-menu-mobile{
+    font-size: 10px;
+    line-height:28px !important;
+    border: none;
+    background-color: #fdd326;
+    padding: 0 14px;
+    font-weight: bold;
+}
+
+.uk-button-menu-mobile:hover{
+    background-color: #fdd326 !important;
+    color: #000000 !important;
+}
+
+.uk-offcanvas-bar {
+    position: absolute;
+    top: 80px;
+    bottom: 0;
+    left: 0;
+    right:0;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    background: #fff;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.uk-close {
+    color: #999 !important;
+    -webkit-transition: .1s ease-in-out;
+    transition: .1s ease-in-out;
+    -webkit-transition-property: color,opacity;
+    transition-property: color,opacity;
+}
+
+
+
+.uk-shared .uk-categorie-title a{
+    font-family: "Open Sans Regular", serif !important;
+    font-size: 13px;
+}
+
+.uk-categorie.uk-categorie-title a::before{
+    display: none;
+
+}
+
+.uk-offcanvas-bar{
+    color: #000000 !important;
+}
+
+.uk-submenu .uk-tab-mobile > li > a{
+    font-family: "Montserrat Light", serif;
+    display: block;
+    font-weight:lighter;
+    text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+    .uk-container-small {
+        width: 100%;
+        padding: 0;
+    }
+
+    .uk-submenu{
+        margin: 0px !important;
+    }
+
+    .uk-cover-slide .uk-position-left{
+        position: relative !important;
+    }
+
+    .uk-cover-slide .uk-article{
+        margin: 0 !important;
+    }
+
+    .uk-height-small{
+        max-height: 150px !important;
+        height: auto;
+    }
+
+    .uk-cover-slide .uk-article.uk-height-custom{
+        max-height: 500px;
+    }
+
+    .uk-block-une{
+        background-color: #666666;
+    }
+
+    .uk-block-une .uk-hr-custom{
+        background-color: transparent;
+        height: 0px;
+        margin: 0;
+    }
+
+    .uk-block-une .uk-une{
+        color: #ffffff;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .uk-article-cover{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .uk-article-mobile{
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    .uk-article .uk-article-first .uk-h4{
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .uk-height-custom{
+        height:auto;
+    }
+    .uk-height-custom .uk-overlay{
+
+        padding-right: 0px;
+        padding-left: 0px;
+        border:none;
+
+    }
+
+    .uk-height-medium{
+        max-height: 300px !important;
+        height: auto;
+    }
+
+    .uk-background-pc .uk-text-title-reverse{
+        text-align: left !important;
+    }
+
+    .uk-publicite{
+        padding: 20px;
+        background-color: #d9d8d8;
+    }
+
+    .uk-publicite-right{
+        padding-bottom: 40px;
+    }
+
+    .uk-background-pc-2{
+        margin: 0 !important;
+    }
+    .uk-nav-right{
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .uk-categorie.uk-categorie-title a::before{
+        display: inline-block;
+
+    }
+
+    .uk-nav-right .uk-padding-custom{
+        padding: 20px !important;
+    }
+
+    .uk-article-button a, .uk-article-button button{
+        margin-left:10px !important;
+        border-radius: 0 !important;
+    }
+
+    .uk-button-shared .uk-icon{
+        margin-right: 2.5px !important;
+        margin-left: 2.1px;
+    }
+
+    .uk-button-shared .uk-bg-default.uk-social-mobile .uk-icon{
+        margin-right: 10px !important;
+    }
+
+    .uk-list.uk-tab-mobile > li:nth-child(n+2), .uk-list.uk-tab-mobile > li > ul {
+        margin-top: 25px;
+    }
+
+}

@@ -29,11 +29,24 @@
     ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class("uk-offcanvas-content"); ?>>
 
-<div class="uk-container uk-container-small uk-menu uk-margin">
-    <nav class="uk-margin uk-navbar" uk-navbar="">
-        <div class="uk-navbar-left uk-margin-medium-top">
+<div class="uk-container uk-container-small uk-menu uk-padding-bottom">
+    <nav class="uk-padding-bottom uk-navbar" uk-navbar="">
+        <div class="uk-navbar-left uk-hidden@m uk-flex">
+            <span class="uk-navbar-toggle" uk-toggle="target: #offcanvas-nav">
+                <span class="fa fa-bars"></span>
+            </span>
+            <span class="uk-margin-small-left">
+                <a href="<?= home_url() ?>" class="uk-logo ">
+                    <img src="<?= get_stylesheet_directory_uri() ?>/image/logo.png" alt="" style="height: 35px;">
+                </a>
+            </span>
+            <span class="uk-position-center-right">
+                <a href="#modal-center" uk-toggle class="uk-button uk-button-default uk-button-menu-mobile uk-margin-small-right">Abonnez-vous</a>
+            </span>
+        </div>
+        <div class="uk-navbar-left uk-margin-medium-top uk-visible@m">
             <div class="uk-width-1-1">
                 <?php
                 $menu_arg = array(
@@ -54,13 +67,13 @@
                 </ul>
             </div>
         </div>
-        <div class="uk-navbar-center">
+        <div class="uk-navbar-center uk-hidden@s">
             <a href="<?= home_url() ?>" class="uk-logo ">
                 <img src="<?= get_stylesheet_directory_uri() ?>/image/logo.png" alt="" style="height: 50px;">
             </a>
         </div>
-        <div class="uk-navbar-right uk-margin-medium-top">
-            <div class="uk-width-1-1 uk-flex uk-flex-right uk-padding-small uk-padding-remove-vertical uk-padding-remove-left">
+        <div class="uk-navbar-right uk-margin-medium-top uk-visible@m">
+            <div class="uk-width-1-1 uk-flex uk-flex-right uk-padding-small uk-padding-remove-vertical uk-padding-remove-left ">
                 <?php
                     wp_nav_menu(
                             array(
@@ -90,16 +103,41 @@
         </div>
     </div>
 </div>
-<div class="uk-container uk-container-small uk-submenu">
-    <?php wp_nav_menu(
-            array(
-	            'container'       =>  false,
-                'container_class' =>  '',
-                'menu_class' =>  'uk-flex-center uk-margin-remove uk-tab',
-                'theme_location' =>  'header-nav',
-                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-            ));
-    ?>
+
+
+<div class="uk-container uk-container-small uk-submenu ">
+    <div class="uk-visible@s">
+	    <?php wp_nav_menu(
+		    array(
+			    'container'       =>  false,
+			    'container_class' =>  '',
+			    'menu_class' =>  'uk-flex-center uk-margin-remove uk-tab',
+			    'theme_location' =>  'header-nav',
+			    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		    ));
+	    ?>
+    </div>
+    <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+        <div class="uk-offcanvas-bar uk-submenu">
+
+            <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+
+            <div class="uk-margin uk-padding-small">
+	            <?php wp_nav_menu(
+		            array(
+			            'container'       =>  false,
+			            'container_class' =>  '',
+			            'menu_class' =>  'uk-list uk-tab-mobile',
+			            'theme_location' =>  'header-nav',
+			            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		            ));
+	            ?>
+            </div>
+
+        </div>
+    </div>
+
     <div class="">
         <?php if( function_exists('the_ad_placement') ): ?>
         <?= the_ad_placement('sous-le-menu') ?>
@@ -107,7 +145,7 @@
     </div>
 </div>
 
-<div class="uk-container uk-container-small uk-padding-small uk-margin-small uk-padding-remove-bottom">
+<div class="uk-container uk-container-small uk-margin-small uk-padding-remove-bottom uk-visible@s">
     <?php //// Breadcrumb navigation
 	if (is_page() && !is_front_page() || is_single() || is_category()) {
 	?>
@@ -165,11 +203,7 @@
 			<?php
 		}
 		//                            ?>
-<!--    <ul class="uk-breadcrumb">-->
-<!--        <li><a href="#">Accueil</a></li>-->
-<!--        <li><a href="#">Item</a></li>-->
-<!--        <li class="uk-disabled"><a href="#">Disabled</a></li>-->
-<!--        <li><span href="#">Active</span></li>-->
-<!--    </ul>-->
+
+
 </div>
 

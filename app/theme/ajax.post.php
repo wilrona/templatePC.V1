@@ -27,42 +27,54 @@ if($type == 'subcategory') :
 ?>
 		<?php while ( $my_posts->have_posts() ) : $my_posts->the_post() ?>
 
-		<div class="uk-width-1-1 the_post">
+        <div class="uk-width-1-1 the_post uk-nav-right">
 
-			<div class="uk-article<?= tr_taxonomies_field('suffix', 'category', $thiscat->parent) ?> uk-margin uk-article-horizontal uk-transition-toggle">
-				<article class="uk-article">
-					<div class="uk-padding-small uk-padding-remove-horizontal" uk-grid>
-						<div class="uk-width-1-3">
-							<div class="uk-cover-container uk-height-1-1 uk-flex uk-flex-middle">
+            <div class="uk-article<?= tr_taxonomies_field('suffix', 'category', $thiscat->parent) ?> uk-margin <?php if(!is_mobile()): ?> uk-article-horizontal <?php endif; ?> uk-transition-toggle">
+                <article class="uk-article">
+                    <div class="uk-padding-small uk-padding-remove-horizontal uk-padding-custom" uk-grid>
+                        <div class="uk-width-1-3 uk-flex-first@m">
+                            <div class="uk-cover-container uk-height-1-1 uk-flex uk-flex-middle">
 								<?=  get_the_post_thumbnail( get_the_ID(), 'full', array('class' => 'uk-transition-scale-up uk-transition-opaque')); ?>
-							</div>
-						</div>
-						<div class="uk-width-2-3">
-							<div class="uk-article-meta uk-categorie">
+                            </div>
+                        </div>
+                        <div class="uk-width-2-3 uk-flex-first uk-flex-last@m">
+                            <div class="uk-article-meta uk-categorie uk-visible@m">
 								<?= get_the_date('d/m/Y', get_the_ID()) ?> <br>
-								<a href="<?= get_category_link(get_the_category(get_the_ID())[0]->term_id); ?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category(get_the_ID())[0]->name; ?></a>
-							</div>
-							<h2 class="dotdot uk-margin-small uk-h4" style="max-height: 3em">
-								<a href="" class="uk-link-reset uk-display-block uk-text-break"><?= get_the_title(); ?></a>
-							</h2>
-							<div class="uk-height-content dotdot uk-margin-small uk-text-justify">
-								<p>
+                                <a href="<?= get_category_link(get_the_category(get_the_ID())[0]->term_id); ?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category(get_the_ID())[0]->name; ?></a>
+                            </div>
+                            <h2 class="dotdot uk-margin-small uk-h5" style="max-height: 3em">
+                                <a href="<?= get_the_permalink(get_the_ID()) ?>" class="uk-link-reset uk-display-block uk-text-break"><?= get_the_title(); ?></a>
+                            </h2>
+                            <div class="uk-article-meta uk-categorie uk-hidden@m">
+								<?= get_the_date('d/m/Y', get_the_ID()) ?> <br>
+                                <a href="<?= get_category_link(get_the_category(get_the_ID())[0]->term_id); ?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category(get_the_ID())[0]->name; ?></a>
+                            </div>
+                            <div class="uk-height-content dotdot uk-margin-small uk-text-justify uk-visible@m">
+                                <p>
 									<?= get_the_excerpt(); ?>
-								</p>
-							</div>
-							<div class="uk-grid-small uk-child-width-auto uk-margin-small" uk-grid>
-								<div>
+                                </p>
+                            </div>
+                            <div class="uk-grid-small uk-child-width-auto uk-margin-small uk-visible@m" uk-grid>
+                                <div>
 									<?php $auteur_id = get_the_author_ID(); ?>
-									Ajouté par : <a class="uk-link-reset" href=""><?php the_author_meta( 'display_name' , $auteur_id ); ?></a>
-								</div>
-							</div>
-						</div>
-					</div>
+                                    Ajouté par : <a class="uk-link-reset" href=""><?php the_author_meta( 'display_name' , $auteur_id ); ?></a>
+                                </div>
+                            </div>
+                        </div>
 
-				</article>
-			</div>
+                        <div class="uk-width-1-1 uk-hidden@m uk-margin-small">
+                            <div class="uk-height-content dotdot uk-margin-small uk-text-justify">
+                                <p>
+	                                <?= get_the_excerpt(); ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-		</div>
+                </article>
+            </div>
+
+        </div>
 
 		<?php endwhile ?>
 <?php
@@ -175,31 +187,48 @@ else:
         ?>
         <?php while ( $similraire->have_posts() ) : $similraire->the_post() ?>
             <hr>
-            <div class="uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category($similraire->ID)[0]->parent) ?> uk-margin uk-article-horizontal the_post">
+            <div class="uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-margin uk-article-horizontal the_post">
                 <article class="uk-article">
                     <div class="uk-padding-small uk-padding-remove-horizontal" uk-grid>
                         <div class="uk-width-1-3">
                             <div class="uk-cover-container uk-height-1-1">
-                                <?=  get_the_post_thumbnail( $similraire->ID, 'full', array('class' => 'uk-transition-scale-up uk-transition-opaque'));?>
+						        <?=  get_the_post_thumbnail( $similraire->ID, 'full', array('class' => 'uk-transition-scale-up uk-transition-opaque'));?>
                             </div>
                         </div>
-                        <div class="uk-width-2-3">
-                            <div class="uk-article-meta uk-categorie">
-                                <?= get_the_date('d/m/Y', $similraire->ID) ?> <br>
+                        <div class="uk-width-2-3 uk-flex-first uk-flex-last@m">
+                            <div class="uk-article-meta uk-categorie uk-visible@m">
+						        <?= get_the_date('d/m/Y', $similraire->ID) ?> <br>
                                 <a href="<?= get_category_link(get_the_category($similraire->ID)[0]->term_id);?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category($similraire->ID)[0]->name; ?></a>
                             </div>
                             <h2 class="dotdot uk-margin-small uk-h5" style="max-height: 3.6em">
                                 <a href="<?= get_the_permalink($similraire->ID) ?>" class="uk-link-reset uk-display-block uk-text-break"><?= get_the_title() ?></a>
                             </h2>
-                            <div class="uk-height-content dotdot uk-margin-small uk-text-justify">
+                            <div class="uk-article-meta uk-categorie uk-hidden@m">
+
+                                <a href="<?= get_category_link(get_the_category($similraire->ID)[0]->term_id);?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category($similraire->ID)[0]->name; ?></a> <br>
+						        <?= get_the_date('d/m/Y', $similraire->ID) ?>
+                            </div>
+                            <div class="uk-height-content dotdot uk-margin-small uk-text-justify uk-visible@m">
                                 <p>
-                                    <?= get_the_excerpt() ?>
+							        <?= get_the_excerpt() ?>
                                 </p>
                             </div>
-                            <div class="uk-grid-small uk-child-width-auto uk-margin-small" uk-grid>
+                            <div class="uk-grid-small uk-child-width-auto uk-margin-small uk-visible@m" uk-grid>
                                 <div>
                                     Ajouté par : <a class="uk-link-reset" href=""><?php the_author_meta( 'display_name' , get_the_author_ID() ); ?></a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-1 uk-hidden@m uk-margin-small">
+                        <div class="uk-height-content dotdot uk-margin-small uk-text-justify ">
+                            <p>
+						        <?= get_the_excerpt() ?>
+                            </p>
+                        </div>
+                        <div class="uk-grid-small uk-child-width-auto uk-margin-small" uk-grid>
+                            <div>
+                                Ajouté par : <a class="uk-link-reset" href=""><?php the_author_meta( 'display_name' , get_the_author_ID() ); ?></a>
                             </div>
                         </div>
                     </div>
@@ -250,7 +279,7 @@ else:
 								    <?= get_the_date('d/m/Y', get_the_ID()) ?> <br>
                                     <a href="<?= get_category_link(get_the_category(get_the_ID())[0]->term_id); ?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category(get_the_ID())[0]->name; ?></a>
                                 </div>
-                                <h2 class="dotdot uk-margin-small uk-h4" style="max-height: 3em">
+                                <h2 class="dotdot uk-margin-small uk-h5" style="max-height: 3em">
                                     <a href="<?= get_the_permalink(get_the_ID()) ?>" class="uk-link-reset uk-display-block uk-text-break"><?= get_the_title(); ?></a>
                                 </h2>
                                 <div class="uk-height-content dotdot uk-margin-small uk-text-justify">

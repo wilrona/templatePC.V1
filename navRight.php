@@ -1,4 +1,4 @@
-<div class="uk-width-1-3">
+<div class="uk-width-1-3@l uk-width-1-1@s uk-nav-right">
 	<?php
 	$popularpost = new WP_Query( array(
 		'posts_per_page' => 5,
@@ -9,7 +9,7 @@
 	) );
 	?>
     <?php if($popularpost->have_posts()): ?>
-	    <div class="uk-margin-medium uk-background-pc-2 uk-position-relative">
+	    <div class="uk-margin-medium@l uk-background-pc-2 uk-position-relative">
 		<table class="uk-table uk-shared uk-table-divider uk-margin-remove">
 			<thead>
 			<tr>
@@ -24,13 +24,13 @@
 	                <?php while ( $popularpost->have_posts() ) : $popularpost->the_post(); ?>
                     <tr class="uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category($popularpost->ID)[0]->parent) ?>">
                         <td>
-                            <h2 class="uk-margin-small uk-h6 uk-text-break uk-opensan-regular" style="font-size: 13px;">
+                            <h2 class="uk-margin-small uk-h6 uk-text-break uk-opensan-regular uk-categorie-title uk-categorie" style="font-size: 13px;">
                                 <a href="<?= get_the_permalink($popularpost->ID) ?>" class="uk-link-reset"><?= get_the_title() ?></a>
                             </h2>
                             <div class="uk-categorie" style="font-size: 11px;">
                                 Publié le <?= get_the_date('d/m/Y', $popularpost->ID) ?>
                             </div>
-                            <div class="uk-categorie">
+                            <div class="uk-categorie uk-visible@l">
                                 <a href="<?= get_category_link(get_the_category($popularpost->ID)[0]->term_id);?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category($popularpost->ID)[0]->name; ?></a>
                             </div>
                         </td>
@@ -53,19 +53,19 @@
     <?php endif; ?>
     <?php wp_reset_query(); ?>
 
-	<div class="uk-width-1-1 uk-flex uk-flex-center uk-padding uk-padding-remove-vertical uk-margin-medium">
+	<div class="uk-width-1-1 uk-visible@l uk-flex uk-flex-center uk-padding uk-padding-remove-vertical uk-margin-medium">
 		<a href="#modal-center" uk-toggle class="uk-button uk-button-default uk-button-large uk-button-menu">Abonnez-vous</a>
 	</div>
-	<div uk-sticky="bottom: #block">
+	<div uk-sticky="bottom: #block; media: 960">
 		<?php  if ( function_exists('the_ad_placement')): ?>
-		<div class="uk-position-relative">
+		<div class="uk-position-relative uk-publicite uk-publicite-right">
 			<?=  the_ad_placement('sidebar-left') ?>
 			<div class="uk-width-1-1 uk-position-bottom uk-text-right uk-background-pc-3 uk-padding uk-padding-remove-vertical uk-height-custom-pub">
 
 			</div>
 		</div>
 		<?php  endif ?>
-		<div class="uk-margin-small uk-background-pc-2 uk-position-relative">
+		<div class="uk-margin-small uk-background-pc-2 uk-position-relative uk-visible@l">
 			<table class="uk-table uk-gallery uk-shared uk-table-divider uk-margin-remove">
 				<thead>
 				<tr>

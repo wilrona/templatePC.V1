@@ -24,7 +24,7 @@ function fau_login_theme_style() {
 
   wp_enqueue_style(
     'fau-login-style',
-    plugins_url() . '/yoomee-ui/css/fau_styles_login.css'
+	  get_template_directory_uri() . '/yoomee-ui/css/fau_styles_login.css'
 	);
 
   $login_css = "
@@ -51,7 +51,7 @@ function fau_admin_bar_theme_style() {
 
   wp_enqueue_style(
 		'fau-admin-bar-style',
-		plugins_url() . '/yoomee-ui/css/fau_styles_adminbar.css'
+	  get_template_directory_uri() . '/yoomee-ui/css/fau_styles_adminbar.css'
 	);
 
   $admin_bar_css = "
@@ -84,7 +84,7 @@ function fau_admin_theme_style() {
 
   wp_enqueue_style(
 		'fau-admin-style',
-		plugins_url() . '/yoomee-ui/css/fau_styles_admin.css'
+	  get_template_directory_uri() . '/yoomee-ui/css/fau_styles_admin.css'
 	);
 
   $admin_css = "

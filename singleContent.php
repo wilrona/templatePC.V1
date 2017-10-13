@@ -2,9 +2,9 @@
 <?php if ( have_posts() ) while ( have_posts() ) : the_post();  SetPostViews(get_the_ID()); ?>
 
 <div class="uk-banner-title uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-grid-collapse uk-opensan-bold" uk-grid>
-	<div class="uk-width-auto uk-padding-xsmall boundary-align-1 uk-box-shadow-medium">
-		<div class="uk-inline">
-			<div><span class="uk-margin-right"> <?= get_category(get_the_category(get_the_ID())[0]->parent)->name ?> </span> <span uk-icon="icon: menu"></span></div>
+	<div class="uk-width-auto@m uk-padding-xsmall boundary-align-1 uk-box-shadow-medium">
+		<div class="uk-inline uk-width-1-1">
+			<div><span class="uk-margin-right"> <?= get_category(get_the_category(get_the_ID())[0]->parent)->name ?> </span> <span uk-icon="icon: menu" class="uk-float-right"></span></div>
 			<div uk-dropdown="pos: bottom-justify; boundary: .boundary-align-1; boundary-align: true" class="uk-margin-remove">
 				<?php
 
@@ -36,7 +36,7 @@
 
 		<div class="uk-article-eco uk-margin uk-article-horizontal">
 			<article class="uk-article">
-				<div class="uk-padding-small uk-padding-remove-horizontal" uk-grid>
+				<div class="uk-padding-small uk-padding-remove-horizontal uk-padding-custom" uk-grid>
 					<div class="uk-width-1-1">
 
 						<h1 class="uk-margin-small uk-h1" style="max-height: 3.6em">
@@ -64,43 +64,49 @@
 	</div>
 </div>
 
-<div id="interaction" class="uk-margin uk-child-width-auto uk-grid-collapse uk-button-shared uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?>" uk-grid>
+<div id="interaction" class="uk-margin uk-child-width-auto@m uk-grid-collapse uk-button-shared uk-padding-custom uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?>" uk-grid>
 	<div>
-		<a href="#modal-center" uk-toggle class="uk-button uk-button-default">Abonnez-vous</a>
+		<a href="#modal-center" uk-toggle class="uk-button uk-button-default uk-width-1-1">Abonnez-vous</a>
 	</div>
 
-	<div class="uk-bg-default">
-		<a href="#comments" class="uk-button" uk-scroll> <span class="fa fa-comment uk-icon"></span> Réagir </a>
+	<div class="uk-bg-default uk-width-auto uk-text-center">
+		<a href="#comments" class="uk-button" uk-scroll> <span class="fa fa-comment uk-icon"></span> <span class="uk-visible@m">Réagir</span> </a>
 	</div>
-	<div class="uk-bg-default">
-		<a href="#modal-friend" uk-toggle class="uk-button"> <span  class="fa fa-envelope uk-icon"></span> Envoyer l'article à un ami </a>
+	<div class="uk-bg-default uk-width-auto uk-text-center">
+		<a href="#modal-friend" uk-toggle class="uk-button"> <span  class="fa fa-envelope uk-icon"></span> <span class="uk-visible@m">Envoyer l'article à un ami</span> </a>
 	</div>
-    <div data-network="facebook" class="st-custom-button uk-bg-default" data-image="<?= get_the_post_thumbnail_url() ?>">
+    <div data-network="facebook" class="st-custom-button uk-bg-default uk-width-expand uk-text-center uk-social-mobile" data-image="<?= get_the_post_thumbnail_url() ?>">
         <a href="#"  class="uk-button" onclick="event.preventDefault();"><span class="uk-icon fa fa-facebook"></span> Partage(s) </a>
     </div>
-	<div class="uk-bg-default st-custom-button" data-network="twitter" data-image="<?= get_the_post_thumbnail_url() ?>">
+	<div class="uk-bg-default st-custom-button uk-width-expand uk-text-center uk-social-mobile" data-network="twitter" data-image="<?= get_the_post_thumbnail_url() ?>">
 		<a href="#" class="uk-button" onclick="event.preventDefault()"><span class="fa fa-twitter uk-icon"></span> Twitte(s)  </a>
 	</div>
 </div>
 
-<hr>
+    <div class="uk-width-1-1 uk-hidden@m uk-padding-small uk-padding-remove-vertical uk-margin-small uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?>">
+
+    </div>
+<hr class="uk-visible@m">
 
 <div class="uk-margin uk-contenu">
 	<?=  get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'uk-margin-auto uk-display-block uk-margin'));?>
-	<?php the_content() ?>
+    <div class="uk-padding-custom">
+	    <?php the_content() ?>
 
-    <?php
-        $images = tr_posts_field('image_de_la_gallerie');
-        if($images):
-    ?>
-    <div class="owl-carousel owl-theme" id="owl-carousel-post">
-        <?php foreach ($images as $image): ?>
-            <div class="item uk-transition-toggle">
-                <?= wp_get_attachment_image($image['image'], '790') ?>
+	    <?php
+	    $images = tr_posts_field('image_de_la_gallerie');
+	    if($images):
+		    ?>
+            <div class="owl-carousel owl-theme" id="owl-carousel-post">
+			    <?php foreach ($images as $image): ?>
+                    <div class="item uk-transition-toggle">
+					    <?= wp_get_attachment_image($image['image'], '790') ?>
+                    </div>
+			    <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+	    <?php endif; ?>
     </div>
-    <?php endif; ?>
+
 </div>
 
 	<div class="uk-margin uk-grid-small" uk-grid>
@@ -108,7 +114,7 @@
 
 			<div class="uk-article-eco uk-margin uk-article-horizontal">
 				<article class="uk-article">
-					<div class="uk-padding-small uk-padding-remove-horizontal" uk-grid>
+					<div class="uk-padding-small uk-padding-remove-horizontal uk-padding-custom" uk-grid>
 						<div class="uk-width-1-1">
 							<div class="uk-article-meta uk-text-uppercase uk-h6 uk-margin-remove uk-article-date">
 								Pause café le <?= get_the_date('d/m/Y') ?> <br>
@@ -127,46 +133,56 @@
 		</div>
 	</div>
 
-	<div class="uk-margin uk-child-width-auto uk-grid-collapse uk-button-shared uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?>" uk-grid>
-		<div>
-			<a href="#modal-center" uk-toggle class="uk-button uk-button-default">Abonnez-vous</a>
-		</div>
-
-		<div class="uk-bg-default">
-			<a href="#comments" class="uk-button" uk-scroll> <span class="fa fa-comment uk-icon"></span> Réagir </a>
-		</div>
-		<div class="uk-bg-default">
-			<a href="#modal-friend" uk-toggle class="uk-button" > <span  class="fa fa-envelope uk-icon"></span> Envoyer l'article à un ami </a>
-		</div>
-        <div data-network="facebook" class="st-custom-button uk-bg-default" data-image="<?= get_the_post_thumbnail_url() ?>">
-            <a href="#"  class="uk-button" onclick="event.preventDefault()"><span class="uk-icon fa fa-facebook"></span> Partage(s) </a>
+    <div id="interaction" class="uk-margin uk-nav-right uk-child-width-auto@m uk-grid-collapse uk-button-shared uk-padding-custom uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?>" uk-grid>
+        <div>
+            <a href="#modal-center" uk-toggle class="uk-button uk-button-default uk-width-1-1">Abonnez-vous</a>
         </div>
-        <div class="uk-bg-default st-custom-button" data-network="twitter" data-image="<?= get_the_post_thumbnail_url() ?>">
+
+        <div class="uk-bg-default uk-width-auto uk-text-center">
+            <a href="#comments" class="uk-button" uk-scroll> <span class="fa fa-comment uk-icon"></span> <span class="uk-visible@m">Réagir</span> </a>
+        </div>
+        <div class="uk-bg-default uk-width-auto uk-text-center">
+            <a href="#modal-friend" uk-toggle class="uk-button"> <span  class="fa fa-envelope uk-icon"></span> <span class="uk-visible@m">Envoyer l'article à un ami</span> </a>
+        </div>
+        <div data-network="facebook" class="st-custom-button uk-bg-default uk-width-expand uk-text-center uk-social-mobile" data-image="<?= get_the_post_thumbnail_url() ?>">
+            <a href="#"  class="uk-button" onclick="event.preventDefault();"><span class="uk-icon fa fa-facebook"></span> Partage(s) </a>
+        </div>
+        <div class="uk-bg-default st-custom-button uk-width-expand uk-text-center uk-social-mobile" data-network="twitter" data-image="<?= get_the_post_thumbnail_url() ?>">
             <a href="#" class="uk-button" onclick="event.preventDefault()"><span class="fa fa-twitter uk-icon"></span> Twitte(s)  </a>
         </div>
-	</div>
+    </div>
 
 
-	<hr>
-	<?php if (function_exists('the_ad_placement')): ?>
-		<div class="uk-position-relative">
+	<hr class="uk-visible@m">
+	<?php if (is_mobile()): ?>
+		<?php if (function_exists('the_ad_placement')): ?>
+            <div class="uk-position-relative uk-publicite">
 
-			<?php the_ad_placement('placement-manuel') ?>
+				<?php the_ad_placement('placement-manuel-mobile') ?>
 
-		</div>
+            </div>
+		<?php endif ?>
+	<?php else: ?>
+		<?php if (function_exists('the_ad_placement')): ?>
+            <div class="uk-position-relative">
+
+				<?php the_ad_placement('placement-manuel') ?>
+
+            </div>
+		<?php endif ?>
 	<?php endif ?>
 
-	<div class="uk-margin uk-banner-title uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-grid-collapse uk-opensan-bold uk-margin-remove-bottom" uk-grid>
-		<div class="uk-width-auto uk-padding-xsmall boundary-align-1 uk-box-shadow-medium">
-			<div class="uk-inline">
+	<div class="uk-margin uk-banner-title uk-nav-right uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-grid-collapse uk-opensan-bold uk-margin-remove-bottom" uk-grid>
+		<div class="uk-width-auto@m uk-padding-xsmall boundary-align-1 uk-box-shadow-medium">
+			<div class="uk-inline uk-width-1-1">
 				<div><span class="uk-margin-right">Sur le même sujet</div>
 			</div>
 		</div>
-		<div class="uk-width-expand uk-padding-xsmall">  </div>
+		<div class="uk-width-expand uk-padding-xsmall uk-visible@m">  </div>
 
 	</div>
 
-	<div class="uk-margin-remove-top uk-margin-medium uk-padding-small uk-background-muted uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-similaire" uk-scrollspy="target: > div; cls:uk-animation-slide-top-medium; delay: 500">
+	<div class="uk-margin-remove-top uk-nav-right uk-margin-medium uk-padding-small uk-background-muted uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-similaire" uk-scrollspy="target: > div; cls:uk-animation-slide-top-medium; delay: 500">
 		<?php
 		$args = array(
 
@@ -193,26 +209,43 @@
 								<?=  get_the_post_thumbnail( $similraire->ID, 'full', array('class' => 'uk-transition-scale-up uk-transition-opaque'));?>
 							</div>
 						</div>
-						<div class="uk-width-2-3">
-							<div class="uk-article-meta uk-categorie">
+						<div class="uk-width-2-3 uk-flex-first uk-flex-last@m">
+							<div class="uk-article-meta uk-categorie uk-visible@m">
 								<?= get_the_date('d/m/Y', $similraire->ID) ?> <br>
 								<a href="<?= get_category_link(get_the_category($similraire->ID)[0]->term_id);?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category($similraire->ID)[0]->name; ?></a>
 							</div>
 							<h2 class="dotdot uk-margin-small uk-h5" style="max-height: 3.6em">
 								<a href="<?= get_the_permalink($similraire->ID) ?>" class="uk-link-reset uk-display-block uk-text-break"><?= get_the_title() ?></a>
 							</h2>
-							<div class="uk-height-content dotdot uk-margin-small uk-text-justify">
+                            <div class="uk-article-meta uk-categorie uk-hidden@m">
+
+                                <a href="<?= get_category_link(get_the_category($similraire->ID)[0]->term_id);?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category($similraire->ID)[0]->name; ?></a> <br>
+	                            <?= get_the_date('d/m/Y', $similraire->ID) ?>
+                            </div>
+							<div class="uk-height-content dotdot uk-margin-small uk-text-justify uk-visible@m">
 								<p>
 									<?= get_the_excerpt() ?>
 								</p>
 							</div>
-							<div class="uk-grid-small uk-child-width-auto uk-margin-small" uk-grid>
+							<div class="uk-grid-small uk-child-width-auto uk-margin-small uk-visible@m" uk-grid>
 								<div>
 									Ajouté par : <a class="uk-link-reset" href=""><?php the_author_meta( 'display_name' , get_the_author_ID() ); ?></a>
 								</div>
 							</div>
 						</div>
 					</div>
+                    <div class="uk-width-1-1 uk-hidden@m uk-margin-small">
+                        <div class="uk-height-content dotdot uk-margin-small uk-text-justify ">
+                            <p>
+			                    <?= get_the_excerpt() ?>
+                            </p>
+                        </div>
+                        <div class="uk-grid-small uk-child-width-auto uk-margin-small" uk-grid>
+                            <div>
+                                Ajouté par : <a class="uk-link-reset" href=""><?php the_author_meta( 'display_name' , get_the_author_ID() ); ?></a>
+                            </div>
+                        </div>
+                    </div>
 
 				</article>
 			</div>
@@ -220,8 +253,8 @@
 		<?php endwhile; wp_reset_query(); ?>
 
 
-		<div class="uk-width-1-1 uk-flex uk-flex-center uk-padding-small uk-padding-remove-vertical uk-margin-small uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-article-button uk-animation-toggle">
-			<button class="uk-button uk-button-default loadmore">Plus d'articles</button>
+		<div class="uk-width-1-1 uk-flex uk-flex-center@m uk-padding-small uk-padding-remove-vertical uk-margin-small uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-article-button uk-animation-toggle">
+			<button class="uk-button uk-button-default uk-width-auto@m uk-width-1-1 uk-display-block uk-margin-auto loadmore">Plus d'articles</button>
 		</div>
 	</div>
 
@@ -239,7 +272,7 @@
 
 
 
-    <div id="comments" class="uk-margin uk-banner-title uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-grid-collapse uk-opensan-bold uk-margin-small-bottom uk-comments-header" uk-grid>
+    <div id="comments" class="uk-margin uk-visible@m uk-banner-title uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category(get_the_ID())[0]->parent) ?> uk-grid-collapse uk-opensan-bold uk-margin-small-bottom uk-comments-header" uk-grid>
         <div class="uk-width-auto uk-hidden">
         </div>
         <div class="uk-width-expand uk-padding-small uk-position-relative">
@@ -281,7 +314,7 @@
         ?>
         <hr>
     </div>
-    <div class="uk-margin-remove-top uk-margin-medium uk-comments-body">
+    <div class="uk-margin-remove-top uk-margin-medium uk-comments-body uk-visible@m">
         <?php
 
             $args_comment = array(
@@ -375,7 +408,8 @@
 
         var page = 3;
         jQuery(function($) {
-            $('body').on('click', '.loadmoreComment', function() {
+            $('body').on('click', '.loadmoreComment', function(e) {
+                e.preventDefault();
                 var data = {
                     'action': 'load_posts_by_ajax',
                     'security': '<?php echo wp_create_nonce("load_more_posts"); ?>',
@@ -398,7 +432,8 @@
 //        var ajaxurl = "<?php //echo admin_url( 'admin-ajax.php' ); ?>//";
         var paged = 2;
         jQuery(function($) {
-            $('body').on('click', '.loadmore', function() {
+            $('body').on('click', '.loadmore', function(e) {
+                e.preventDefault();
                 var data = {
                     'action': 'load_posts_by_ajax',
                     'page': paged,

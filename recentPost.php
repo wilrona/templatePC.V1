@@ -8,7 +8,7 @@
 
     $the_last = new WP_Query( $args );
 ?>
-<?php if($the_last->have_posts()): ?>
+<?php if($the_last->have_posts() && !is_mobile()): ?>
 <div class="uk-section uk-section-small uk-background-muted">
 	<h2 class="uk-h4 uk-text-center uk-opensan-bold uk-une">Articles Récents</h2>
 	<div class="owl-carousel owl-theme" id="owl-carousel">
@@ -26,7 +26,7 @@
 
                         <div class="uk-article-meta uk-categorie"><a href="<?= get_category_link(get_the_category($the_last->ID)[0]->term_id);?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category($the_last->ID)[0]->name; ?></a></div>
 
-                        <div class="uk-margin-medium"></div>
+                        <div class="uk-margin-small"></div>
 
                     </article>
                 </div>
@@ -34,5 +34,45 @@
         <?php endwhile; ?>
 	</div>
 </div>
+
+<?php endif; ?>
+
+
+<?php if($the_last->have_posts() && is_mobile()): ?>
+    <div class="uk-background-muted">
+        <div class="">
+            <table class="uk-table uk-shared uk-table-divider uk-margin-remove uk-table-middle">
+
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <h2 class="uk-h5 uk-opensan-bold uk-une">Articles Récents</h2>
+                        </td>
+                    </tr>
+			    <?php while ( $the_last->have_posts() ) : $the_last->the_post(); ?>
+                    <tr class="uk-article<?= tr_taxonomies_field('suffix', 'category', get_the_category($the_last->ID)[0]->parent) ?>">
+                        <td>
+                            <h2 class="uk-margin-small uk-h6 uk-text-break uk-opensan-regular uk-categorie-title uk-categorie" style="font-size: 13px;">
+                                <a href="<?= get_the_permalink($the_last->ID) ?>" class="uk-link-reset"><?= get_the_title() ?></a>
+                            </h2>
+                            <div class="uk-categorie" style="font-size: 11px;">
+                                Publié le <?= get_the_date('d/m/Y', $the_last->ID) ?>
+                            </div>
+                            <div class="uk-categorie uk-visible@l">
+                                <a href="<?= get_category_link(get_the_category($the_last->ID)[0]->term_id);?>" class="uk-text-uppercase uk-text-bold"><?= get_the_category($the_last->ID)[0]->name; ?></a>
+                            </div>
+                        </td>
+
+                        <td class="uk-table-badge uk-text-center">
+                            <span class="uk-badge uk-badge-shared">
+                                <?= displayMontant(get_post_meta(get_the_ID(), 'post_views_count')[0]) ?>
+                            </span>
+                        </td>
+                    </tr>
+			    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 <?php endif; ?>

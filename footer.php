@@ -1,20 +1,25 @@
 
-<div class="uk-margin" uk-grid>
-    <div class="uk-width-1-1" id="block-left"></div>
+<div class="uk-margin uk-nav-right" uk-grid>
     <div class="uk-width-1-1">
-        <?php if ((int) get_option('page_on_front') == get_the_ID()): ?>
-	        <?php get_template_part( 'recentPost' ); ?>
-        <?php endif ?>
-		<?php if ( function_exists('the_ad_placement')): ?>
-            <div class="uk-position-relative">
+	    <?php if ((int) get_option('page_on_front') == get_the_ID()): ?>
+		    <?php get_template_part( 'recentPost' ); ?>
+	    <?php endif ?>
 
-				<?php
+	    <?php if(!is_mobile()): ?>
 
-                    the_ad_placement('home-apres-recent-article');
-                ?>
 
-            </div>
-		<?php endif ?>
+            <?php if ( function_exists('the_ad_placement')): ?>
+                <div class="uk-position-relative">
+
+                    <?php
+
+                        the_ad_placement('home-apres-recent-article');
+                    ?>
+
+                </div>
+            <?php endif ?>
+
+	    <?php endif ?>
     </div>
 </div>
 </div>
@@ -24,8 +29,8 @@
 <div class="uk-section uk-section-secondary">
     <div class="uk-container uk-container-small">
         <div class="uk-margin" uk-grid>
-            <div class="uk-width-1-3">
-                <img src="<?= get_stylesheet_directory_uri() ?>/image/logo-w.png" alt="" class="uk-display-block uk-margin-auto uk-margin-medium">
+            <div class="uk-width-1-3@l">
+                <img src="<?= get_stylesheet_directory_uri() ?>/image/logo-w.png" alt="" class="uk-display-block uk-margin-auto uk-margin-medium uk-visible@l">
                 <div class="uk-width-1-1 uk-flex uk-flex-center uk-padding-small uk-padding-remove-vertical uk-margin-small">
                     <a href="#modal-center" uk-toggle class="uk-button uk-button-default uk-button-menu-reverse">Abonnez-vous</a>
                 </div>
@@ -39,33 +44,39 @@
 
                 </div>
             </div>
-            <div class="uk-width-1-4">
-                <?php
+            <div class="uk-width-1-4@l">
+                <div class="uk-padding-small">
+	                <?php
 
-                    wp_nav_menu(array(
+	                wp_nav_menu(array(
 
-                        'container'       =>  false,
-                        'container_class' =>  '',
-                        'menu_class' =>  'uk-list-link uk-opensan-regular',
-                        'theme_location' =>  'footer-nav',
-                        'items_wrap' => '<div id="%1$s" class="%2$s">%3$s</div>',
+		                'container'       =>  false,
+		                'container_class' =>  '',
+		                'menu_class' =>  'uk-list-link uk-opensan-regular',
+		                'theme_location' =>  'footer-nav',
+		                'items_wrap' => '<div id="%1$s" class="%2$s">%3$s</div>',
 
-                    ));
+	                ));
 
-                ?>
+	                ?>
+                </div>
+
             </div>
-            <div class="uk-width-2-5">
-                <?php wp_nav_menu(
-                        array(
+            <div class="uk-width-2-5@l">
+                <div class="uk-padding-small">
+	                <?php wp_nav_menu(
+		                array(
 
-                            'container'       =>  false,
-                            'container_class' =>  '',
-                            'menu_class' =>  'uk-column-1-2 uk-list-link uk-opensan-regular',
-                            'theme_location' =>  'footer-right-nav',
-                            'items_wrap' => '<div id="%1$s" class="%2$s">%3$s</div>',
+			                'container'       =>  false,
+			                'container_class' =>  '',
+			                'menu_class' =>  'uk-column-1-2 uk-list-link uk-opensan-regular',
+			                'theme_location' =>  'footer-right-nav',
+			                'items_wrap' => '<div id="%1$s" class="%2$s">%3$s</div>',
 
-                        ));
-                ?>
+		                ));
+	                ?>
+                </div>
+
             </div>
 
         </div>
