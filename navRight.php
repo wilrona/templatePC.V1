@@ -1,4 +1,4 @@
-<div class="uk-width-1-3@l uk-width-1-1@s uk-nav-right">
+<div class="uk-width-1-3@m uk-width-1-1@s uk-nav-right">
 	<?php
 	$popularpost = new WP_Query( array(
 		'posts_per_page' => 5,

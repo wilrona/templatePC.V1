@@ -29,7 +29,7 @@
 <div class="uk-section uk-section-secondary">
     <div class="uk-container uk-container-small">
         <div class="uk-margin" uk-grid>
-            <div class="uk-width-1-3@l">
+            <div class="uk-width-1-3@m">
                 <img src="<?= get_stylesheet_directory_uri() ?>/image/logo-w.png" alt="" class="uk-display-block uk-margin-auto uk-margin-medium uk-visible@l">
                 <div class="uk-width-1-1 uk-flex uk-flex-center uk-padding-small uk-padding-remove-vertical uk-margin-small">
                     <a href="#modal-center" uk-toggle class="uk-button uk-button-default uk-button-menu-reverse">Abonnez-vous</a>
@@ -44,7 +44,7 @@
 
                 </div>
             </div>
-            <div class="uk-width-1-4@l">
+            <div class="uk-width-1-4@m">
                 <div class="uk-padding-small">
 	                <?php
 
@@ -62,7 +62,7 @@
                 </div>
 
             </div>
-            <div class="uk-width-2-5@l">
+            <div class="uk-width-2-5@m">
                 <div class="uk-padding-small">
 	                <?php wp_nav_menu(
 		                array(

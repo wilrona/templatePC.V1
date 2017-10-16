@@ -67,7 +67,7 @@
                 </ul>
             </div>
         </div>
-        <div class="uk-navbar-center uk-hidden@s">
+        <div class="uk-navbar-center uk-visible@m">
             <a href="<?= home_url() ?>" class="uk-logo ">
                 <img src="<?= get_stylesheet_directory_uri() ?>/image/logo.png" alt="" style="height: 50px;">
             </a>

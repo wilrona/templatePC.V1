@@ -3,7 +3,7 @@
 	<div class="uk-section uk-padding-remove">
 	<div class="uk-container uk-container-small">
 	<div class="uk-margin-large" uk-grid id="block">
-		<div class="uk-width-2-3">
+		<div class="uk-width-2-3@m">
 			<?php while ( have_posts() ) : the_post(); ?>
                 <div class="uk-background-secondary uk-padding-small uk-margin">
                     <h1 class="uk-margin-remove uk-h5" style="color: #ffffff; font-family: 'Open Sans Bold', serif; "><?php the_title() ?></h1>
